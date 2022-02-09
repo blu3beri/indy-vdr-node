@@ -4,6 +4,7 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
+    "dev": "LIB_INDY_VDR_PATH=~/Developer/work/essif/vdr/indy-vdr/target/release ts-node src/index.ts",
     "start": "ts-node src/index.ts"
   },
   "dependencies": {

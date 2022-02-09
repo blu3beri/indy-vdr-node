@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs'
 import ffi from 'ffi-napi'
 
-const LIBNAME = 'libindy'
+const LIBNAME = 'indyvdr'
 const ENV_VAR = 'LIB_INDY_VDR_PATH'
 
 const extensions: Record<string, string> = { darwin: '.dylib', linux: '.so', win32: '.dll' }
@@ -41,9 +41,9 @@ const getLibrary = () => {
   // would be valid
   const validLibraryPath = libraries.find((l) => doesPathExist(l)) as string
 
-  return ffi.Library(validLibraryPath, { indy_set_logger: ['void', []] })
+  return ffi.Library(validLibraryPath, { indy_vdr_set_default_logger: ['void', []] })
 }
 
 const lib = getLibrary()
 
-lib.indy_set_logger()
+lib.indy_vdr_set_default_logger()
